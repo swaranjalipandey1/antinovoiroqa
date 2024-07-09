@@ -6,7 +6,6 @@ Prerequisites
 Installation
 Configuration
 Running Tests
-Writing Tests
 Reporting
 
 **Introduction**
@@ -52,10 +51,40 @@ Configuration settings for Cypress are in the cypress.json file. You can modify 
 }
 
 **Running Tests**
-npm run cypress:open
+npm run cypress:open      - headed mode
+npm run cypress:run       - headless mode
 
 **Reporting**
-Cypress generates test reports automatically. You can view detailed test results in the Cypress Test Runner or in the terminal output for headless runs.
+install cypress-mochawesome-reporter
+
+npm i --save-dev cypress-mochawesome-reporter
+
+Change cypress reporter & setup hooks
+
+Edit config file (cypress.config.js by default)
+
+const { defineConfig } = require('cypress');
+
+module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  e2e: {
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
+  },
+});
+If you are override before:run or after:run hooks, use this:
+  },
+});
+Add to cypress/support/e2e.js
+
+import 'cypress-mochawesome-reporter/register';
+
+After running the test scripts you will be able to see the report in the report folder
+file name- index.html
+To view report- copy the file path and paste it on the browser.
+
+
 
 
   
