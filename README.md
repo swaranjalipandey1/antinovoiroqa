@@ -80,10 +80,10 @@ Add to cypress/support/e2e.js
 
 import 'cypress-mochawesome-reporter/register';
 
-After running the test scripts you will be able to see the report in the report folder
-file name- index.html
-To view report- copy the file path and paste it on the browser.
-
+1.After running the test scripts you will be able to see the report in the report folder
+2.file name- index.html
+3.To view report- copy the file path and paste it on the browser.
+4.Also you will able to see the screenshots of the failed testcases.
 
 
 
